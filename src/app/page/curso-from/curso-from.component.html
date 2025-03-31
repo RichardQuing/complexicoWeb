@@ -1,0 +1,38 @@
+<form
+  [formGroup]="form"
+  class="d-flex text-center mx-auto align-items-stretch flex-column gap-3"
+  style="width: 40%"
+  (ngSubmit)="addCurso()"
+>
+  <div>
+    <label>Nombre del curso</label>
+    <input id="title" formControlName="title" class="form-control" />
+  </div>
+  <div>
+    <label>Precio del curso</label>
+    <input
+      type="number"
+      id="price"
+      formControlName="price"
+      class="form-control"
+    />
+  </div>
+  <div>
+    <label>Descripción del curso</label>
+    <textarea
+      id="description"
+      formControlName="description"
+      class="form-control"
+      rows="3"
+    ></textarea>
+  </div>
+  <div>
+    <label>Imagen del curso</label>
+    <input type="url" id="image" formControlName="image" class="form-control" />
+  </div>
+  <div>
+    <label>Duración del curso</label>
+    <input id="duration" formControlName="duration" class="form-control" />
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

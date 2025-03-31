@@ -1,0 +1,28 @@
+<div class="container-fluid text-center position-fixed"
+    style="width: 30%; height: 100%; top: 0; right: 0; background-color: rgba(92, 92, 92, 0.861); padding: 15px;">
+    
+    <div class="position-fixed" style="top: 3.5%; right: 27%;">
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeCart()"></button>
+    </div>
+
+    <h1 style="font-size: 25px;">Ordenes de suscripción</h1>
+
+    <div class="d-flex flex-column">
+        @for (curso of getCursos(); track curso.id) {
+            <div class="d-flex align-items-center gap-3 border-bottom py-2">
+                <img [src]="curso.image" [alt]="curso.title" class="img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+                <h5 class="mb-0" style="font-size: 16px; flex-grow: 1;">{{ curso.title }}</h5>
+                <p class="mb-0" style="font-size: 14px;">${{ curso.price.toFixed(2) }}</p>
+                <a class="bi bi-trash3-fill" (click)="removeCurso(curso)" style="cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                      </svg>
+                </a>
+            </div>
+        }
+        <div class="hstack gap-3 text-bg-dark justify-content-center rounded" style="height: 50px;">
+            <h4 style="color: aliceblue;font-size: 15px;">Total: ${{ getTotal().toFixed(2) }}</h4>
+            <button type="button" class="btn btn-success" >Comprar</button>
+        </div>
+    </div>
+</div>
