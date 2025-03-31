@@ -1,0 +1,8 @@
+admin
+correo: admin@admin.com
+contraseña: hola123
+
+user
+correo: test@test.com
+contraseña: hola123
+
