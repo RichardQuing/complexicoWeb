@@ -2,7 +2,7 @@
   [formGroup]="form"
   class="d-flex text-center mx-auto align-items-stretch flex-column gap-3"
   style="width: 40%"
-  (ngSubmit)="addCurso()"
+  (ngSubmit)="id != 0 ? updateCurso() : addCurso()"
 >
   <div>
     <label>Nombre del curso</label>
@@ -34,5 +34,14 @@
     <label>Duración del curso</label>
     <input id="duration" formControlName="duration" class="form-control" />
   </div>
-  <button type="submit" class="btn btn-primary">Guardar</button>
+  <div>
+    <label>Video del curso</label>
+    <input type="url" id="videoUrl" formControlName="videoUrl" class="form-control" />
+  </div>
+  <button type="submit" class="btn btn-primary">
+    @if(id != 0)
+    { Actualizar } 
+    @else 
+    { Agregar }
+  </button>
 </form>

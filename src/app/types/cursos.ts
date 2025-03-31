@@ -5,5 +5,5 @@ export type Curso = {
     description: string;
     image: string;
     duration: string;
-    //comprado: boolean;
+    videoUrl: string; 
 };

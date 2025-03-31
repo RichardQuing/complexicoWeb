@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+    <div class="container-fluid" style="background-color:  #878e95;">
         <a class="navbar-brand" routerLink="/home" ><img src="https://colegiolakeside.edu.mx/wp-content/uploads/2020/06/escudo.png" alt="" style="width: 90px;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" style="font-size: 20px;color: #062d55;">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Home</a>
                 </li>
@@ -16,7 +16,7 @@
             </ul>
         </div>
         <a class="bi bi-cart" (click)="openCart()" style="cursor: pointer;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#062d55" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#062d55" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
                 <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0"/>
               </svg>
         </a>
@@ -27,10 +27,10 @@
                 class="rounded-circle" 
                 [src]="getCurrentUser()?.photoURL" 
                 [alt]="getCurrentUser()?.displayName"
-                style="width: 30px; height: 30px; object-fit: cover; cursor: pointer;" />
+                style="width: 50px; height: 50px; object-fit: cover; cursor: pointer;" />
             } @else {
             <a (click)="logout()" class="bi bi-person-check" style="cursor: pointer;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#062d55"
                     class="bi bi-person-check" viewBox="0 0 16 16">
                     <path
                         d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
@@ -41,7 +41,7 @@
             }
         } @else {
         <a class="bi bi-person-circle" routerLink="/login" style="cursor: pointer;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#062d55"
                 class="bi bi-person-circle" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                 <path fill-rule="evenodd"

@@ -18,7 +18,8 @@ export class CursoFromComponent {
     private cursosService: CursosService, 
     private formBuilder: FormBuilder,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    
     ) {
     this.form = this.formBuilder.group({
       title: ['', [Validators.required]],
@@ -26,6 +27,7 @@ export class CursoFromComponent {
       description:  ['',],
       image:    ['',],
       duration:  ['', [Validators.required]],
+      videoUrl:  ['', [Validators.required]],
     })
   }
 

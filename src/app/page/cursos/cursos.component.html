@@ -1,16 +1,20 @@
-<div class="container-fluid text-center">
-    <h1>Cursos</h1>
-    <button type="button" class="btn btn-primary" routerLink="/curso-from">Agreagr un curso</button>
+<div class="container-fluid text-center my-4">
+    <h1 class="mb-4">Cursos</h1>
+    <button type="button" class="btn btn-primary mb-4" routerLink="/curso-from/0">Agregar un curso</button>
     <div class="row justify-content-center">
         @for (curso of cursos; track curso.id) {
-            <div class="col-md-4 d-flex align-items-stretch" style="padding: 30px;" >
-                <div class="card m-2" style="width: 100%; min-height: 100%;" (click)="goToCurso(curso.id)">
+            <div class="col-md-4 d-flex align-items-stretch" style="padding: 15px;">
+                <div class="card curso-card m-2 shadow-sm border-0" style="width: 100%; min-height: 100%;" (click)="goToCurso(curso.id)">
                     <img [src]="curso.image" alt="{{ curso.title }}" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ curso.title }}</h5>
-                        <p class="card-text">${{ curso.price }}</p>
+                        <p class="card-text text-muted fw-bold">${{ curso.price }}</p>
                         <div class="mt-auto">
                             <a (click)="addToCart($event, curso)" class="btn btn-primary w-100">Añadir</a>
+                            @if(role == "admin"){
+                                <a [routerLink]="['/curso-from', curso.id]" class="btn btn-success w-100 mt-2">Editar</a>
+                                <a (click)="deleteCurso($event, curso.id)" class="btn btn-danger w-100 mt-2">Eliminar</a>
+                            }
                         </div>
                     </div>
                 </div>

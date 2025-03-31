@@ -11,6 +11,7 @@ import {
 import { AuthService } from '../../services/auth/auth.service';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { bootstrapGoogle } from '@ng-icons/bootstrap-icons';
+import { UsersService } from '../../services/users/users.service';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,8 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private usersService:UsersService
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -38,6 +40,7 @@ export class LoginComponent {
     this.authService.loginWithGoogle()
       .then(() => {
         this.errorMessage = "";
+        this.usersService.loadUserInFirebase();
       })
       .catch(err => {  
         console.log(err);
@@ -55,6 +58,7 @@ export class LoginComponent {
       this.authService.registerWithEmail(this.email?.value, this.password?.value)
         .then(() => {
           this.errorMessage = "";
+          this.usersService.loadUserInFirebase();
         }
         )
         .catch(err => {
@@ -66,6 +70,7 @@ export class LoginComponent {
     this.authService.loginWithEmail(this.email?.value, this.password?.value)
       .then(() => {
         this.errorMessage = "";
+        this.usersService.loadUserInFirebase();
       })
       .catch(err => {
         console.log(err);

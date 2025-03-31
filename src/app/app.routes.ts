@@ -8,6 +8,7 @@ import { CursoComponent } from './page/curso/curso.component';
 import { LoginComponent } from './page/login/login.component';
 import { permissionsGuard } from './guards/permissions/permissions.guard';
 import { CursoFromComponent } from './page/curso-from/curso-from.component';
+import { warningsGuard } from './guards/warnings/warnings.guard';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -21,9 +22,7 @@ export const routes: Routes = [
         component: CursoComponent,
         canActivate: [permissionsGuard]
     },
-    {path: 'curso-from', component: CursoFromComponent},
-    { path: 'cursos', component: CursosComponent },
-    { path: 'cursos/:id', component:CursoComponent }, 
+    {path: 'curso-from/:id', component: CursoFromComponent, canDeactivate: [warningsGuard]},
     { path: 'login', component:LoginComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: NotFoundComponent }
